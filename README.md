@@ -95,6 +95,12 @@ large-scale variants a city block requires. Downsample to ~1600 px before traini
 
 The reference `.glb` gives you something to compare a splat or a mesh against.
 
+## Reproducing
+
+Both scans ship solved poses, so you only need to re-align if you want to compare. See
+[docs/reproduce.md](docs/reproduce.md) for settings and what to expect — notably that the
+shingle-roof alignment splits into three components and only the largest is published.
+
 ## Download
 
 ```bash
