@@ -103,13 +103,37 @@ shingle-roof alignment splits into three components and only the largest is publ
 
 ## Download
 
+**→ [huggingface.co/datasets/Matt1up/drone-building-scans](https://huggingface.co/datasets/Matt1up/drone-building-scans)**
+
+Click the **Files** tab and download whatever you want in a browser — no tooling, no account.
+This GitHub repo holds the documentation, manifests, checksums and camera poses; the images and
+models live there.
+
+**One file, straight from a browser or the shell:**
+
 ```bash
+curl -O https://huggingface.co/datasets/Matt1up/drone-building-scans/resolve/main/flat-roof/model/flat-roof.glb
+```
+
+**Everything, as a git repo** (needs git-lfs):
+
+```bash
+git clone https://huggingface.co/datasets/Matt1up/drone-building-scans
+```
+
+**Or use the helper script**, a wrapper around the Hugging Face CLI that adds resume, parallel
+transfers and hash checking:
+
+```bash
+pip install -U 'huggingface_hub[cli]'
+
 ./scripts/download.sh --scan shingle-roof   # 4.08 GiB, start here
 ./scripts/download.sh --scan flat-roof      # 10.61 GiB
-./scripts/download.sh --all
-./scripts/download.sh --models              # reference models only
+./scripts/download.sh --models              # just the reference models, ~475 MB
 ./scripts/verify.sh
 ```
+
+More detail in **[docs/download.md](docs/download.md)**.
 
 ## Notes
 
