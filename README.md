@@ -8,19 +8,16 @@ either a whole city block or a turntable object, with nothing in between.
 
 CC BY 4.0.
 
-## ⬇ Download the images
+## ⬇ Download
 
 ### **[→ huggingface.co/datasets/Matt1up/drone-building-scans](https://huggingface.co/datasets/Matt1up/drone-building-scans)**
 
-**Click that, open the "Files and versions" tab, and download whatever you want.** No account,
-no signup, no tools, no command line. Just click files and they download.
+Browse the **Files** tab and take what you want — no account needed. The 15 GB of imagery lives
+there because GitHub won't host files that size; this repo holds docs, checksums and poses.
 
-The images are 15 GB so they live there rather than on GitHub, which cannot host files that
-size. This page has the documentation, checksums and camera poses.
-
-*Want the finished 3D model to spin around? [Here it is](https://huggingface.co/datasets/Matt1up/drone-building-scans/resolve/main/flat-roof/model/flat-roof.glb) —
-21 MB, opens in any glTF viewer or just drag it onto [gltf-viewer.donmccurdy.com](https://gltf-viewer.donmccurdy.com).
-Command-line options are further down under [Download](#download).*
+[Textured model, 21 MB](https://huggingface.co/datasets/Matt1up/drone-building-scans/resolve/main/flat-roof/model/flat-roof.glb)
+ · [sample image](https://huggingface.co/datasets/Matt1up/drone-building-scans/resolve/main/flat-roof/images/DJI_20260822183442_0005_D.JPG)
+ · [command-line options](#download)
 
 ---
 
