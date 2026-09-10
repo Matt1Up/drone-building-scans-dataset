@@ -1,85 +1,105 @@
-# Drone Building Scans
+# Drone Building Scans — Two Roof Types
 
 Two commercial buildings in the Minneapolis suburbs, flown August 2026. Full image sets with
-GPS intact, plus the finished 3D models so you can compare your reconstruction against mine.
+GPS intact, solved camera poses, and the finished 3D models.
+
+Free drone photogrammetry test data for buildings barely exists. If you are working on roof
+inspection, insurance, or solar tooling, this is meant for you.
 
 CC BY 4.0.
 
-| scan | images | size | subject |
-|---|---:|---|---|
-| `rec-center` | 393 | 4.1 GB | recreation center |
-| `border-foods` | 951 | 12 GB | Border Foods (Taco Bell franchise) — flat roof, rooftop HVAC, parking, drive-through |
+## Flat roof — membrane with rooftop units
 
-There is almost no free drone photogrammetry test data for buildings. Everything published is
-either a city block or a turntable object. If you are building roof inspection, insurance, or
-solar tooling and need real data to test against, this is meant for you.
+![Flat roof reconstruction](preview/flat-roof.jpg)
+
+Single-storey commercial building. Ballasted membrane roof carrying a full spread of rooftop
+HVAC units, parapet edge, brick and panel walls, striped parking.
+
+## Shingle roof — pitched asphalt
+
+![Shingle roof reconstruction](preview/shingle-roof.jpg)
+
+Two-storey building with a hipped asphalt shingle roof, lap siding, exterior walkway and
+stairs, satellite dish.
+
+## What's in it
+
+| | `flat-roof` | `shingle-roof` |
+|---|---|---|
+| images | 951 | 395 |
+| size | 12 GB | 4.5 GB |
+| aligned | **951 / 951** | 384 / 395 |
+| camera poses | included | included |
+| tie points | 146 MB | 68 MB |
+| reference model | `.glb` + `.obj` | `.glb` |
+| scale | **metric — AprilTag control points** | unscaled |
 
 ## Capture
 
-Both scans were flown low and slow, under 16 m, with the gimbal sweeping from straight down to
-slightly upward.
-
-| | rec center | border foods |
-|---|---|---|
-| captured | 2026-08-16, 17:31–18:11 | 2026-08-22, 18:17–19:13 |
-| relative altitude | 2.7 – 15.6 m | 1.1 – 15.2 m |
-| nadir (≤ −80°) | 144 | 416 |
-| oblique (−80° to −30°) | 22 | 231 |
-| low / level (> −30°) | 227 | 304 |
-
+Both flown low and slow, under 16 m, gimbal sweeping from straight down to slightly upward.
 Nadir frames cover the roof, oblique catch the roof edge and parapet, low and level frames get
-the walls. That's why walls resolve — most aerial capture is nadir-only and building sides come
-out as smeared vertical texture.
+the walls. That is why the walls resolve — most aerial capture is nadir-only and building sides
+come out as smeared vertical texture.
 
 | | |
 |---|---|
 | **Camera** | DJI FC9313, 8.7 mm, f/1.8 |
 | **Resolution** | 4096 × 3072 — native sensor readout, not an interpolated mode |
 | **ISO** | 100 throughout |
-| **Geotagging** | GPS lat/lon/altitude in EXIF on every frame |
+| **Geotagging** | GPS on every frame — 951/951 and 395/395 |
+| **Filenames** | original as written by the aircraft, EXIF untouched |
 
 Native resolution matters. These drones offer a higher-megapixel mode that interpolates from
 the same sensor well — it invents texture, and a photogrammetry solver treats invented texture
 as real observations. Everything here is the native readout.
 
-## Reference models
+## Scale
 
-Each scan ships with the finished model, so you can check your result against a known one
-without needing my camera poses.
+**The flat-roof scan is metrically scaled.** A calibrated bar carrying two AprilTag 36h11
+markers (IDs 001 and 002) was placed in the scene and used as control points — see
+`flat-roof/controlpoints.txt`. The tags are visible in the imagery, so the scale is verifiable
+from the data rather than something you have to take on trust.
 
-| | |
-|---|---|
-| `rec-center/model/rec-center.glb` | 19.7 MB |
-| `border-foods/model/border-foods.glb` | 21.8 MB |
-| `border-foods/model/border-foods.obj` + `.mtl` | 456 MB |
+**The shingle-roof scan is not scaled.** No control points, no physical reference. Geometry is
+correct, absolute size is not established.
 
-GLB opens in a browser, Blender, or any glTF viewer. OBJ is there for the bigger one if you
-want the untextured geometry at full density.
+Scale from a measured physical reference is the difference between a measurement and a guess
+about a roof somebody buys shingles against.
+
+## Camera poses
+
+Both ship solved poses, so you can skip structure-from-motion:
+
+```
+<scan>/poses/xmp/        per-image XMP sidecars
+<scan>/poses/colmap/     cameras.txt, images.txt, points3D.txt
+<scan>/sfm/tiepoints.ply sparse cloud
+```
 
 ## Gaussian splatting
 
-No camera poses here — run COLMAP or GLOMAP first. Both scans are small enough that ordinary
-3DGS handles them without the large-scale variants, unlike a city block. Downsample to
-~1600 px before training.
+Poses and tie points are what 3DGS and NeRF pipelines ingest, so both scans train without
+running COLMAP first. Small enough that ordinary 3DGS handles them — no need for the
+large-scale variants a city block requires. Downsample to ~1600 px before training.
 
 The reference `.glb` gives you something to compare a splat or a mesh against.
 
 ## Download
 
-Images are hosted off GitHub. See [docs/download.md](docs/download.md).
-
 ```bash
-./scripts/download.sh --scan rec-center      # 4.1 GB, start here
-./scripts/download.sh --scan border-foods    # 12 GB
+./scripts/download.sh --scan shingle-roof   # 4.5 GB, start here
+./scripts/download.sh --scan flat-roof      # 12 GB
 ./scripts/download.sh --all
+./scripts/download.sh --models              # reference models only
 ./scripts/verify.sh
 ```
 
 ## Notes
 
-- **Both are commercial buildings.** No residential property, no occupants.
-- The licence covers the imagery. Any trademarks visible in it belong to their owners.
-- Shot in evening light — long shadows on the parking lot in both sets.
+- Both are commercial buildings. No residential property, no occupants.
+- The licence covers the imagery. Trademarks or signage visible in it belong to their owners.
+- Shot in evening light — long shadows across the parking areas in both sets.
+- 11 of 395 images do not align on the shingle-roof scan. The flat-roof scan solves 951 of 951.
 
 ## Licence
 
@@ -94,6 +114,6 @@ https://github.com/Matt1Up/drone-building-scans-dataset
 
 ## Related
 
-- **[Tree photogrammetry dataset](https://github.com/Matt1Up/tree-photogrammetry-dataset)** — 812 images of one tree, with camera poses.
-- **[Chicago / Grant Park](https://github.com/Matt1Up/chicago-photogrammetry-dataset)** — 2,751 aerial images over downtown Chicago.
+- **[Tree photogrammetry dataset](https://github.com/Matt1Up/tree-photogrammetry-dataset)** — 812 images of one tree, with COLMAP poses.
+- **[Chicago / Grant Park](https://github.com/Matt1Up/chicago-photogrammetry-dataset)** — 2,751 aerial images and 241 laser scan files over downtown Chicago.
 - **[mattguertin.com](https://mattguertin.com)**

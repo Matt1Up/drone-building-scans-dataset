@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Download building scan image sets.
-#   ./scripts/download.sh --scan rec-center      4.1 GB, 393 images
-#   ./scripts/download.sh --scan border-foods    12 GB, 951 images
+#   ./scripts/download.sh --scan shingle-roof      4.1 GB, 393 images
+#   ./scripts/download.sh --scan flat-roof    12 GB, 951 images
 #   ./scripts/download.sh --all
 #   ./scripts/download.sh --models               reference .glb/.obj only (~500 MB)
 set -euo pipefail

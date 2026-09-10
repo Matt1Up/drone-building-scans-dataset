@@ -1,0 +1,4 @@
+# Images not in the main aligned component.
+# Some failed to align; some solved into small orphan components in their own
+# coordinate frames, which cannot be merged with the main one.
+

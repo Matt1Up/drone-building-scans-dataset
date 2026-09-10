@@ -4,8 +4,8 @@ Images are hosted on Hugging Face, not GitHub — this repo holds documentation,
 checksums.
 
 ```
-rec-center/     393 images    4.1 GB
-border-foods/   951 images     12 GB
+shingle-roof/     393 images    4.1 GB
+flat-roof/   951 images     12 GB
 ```
 
 ## Hugging Face
@@ -13,8 +13,8 @@ border-foods/   951 images     12 GB
 ```bash
 pip install -U 'huggingface_hub[cli]'
 
-./scripts/download.sh --scan rec-center     # start here, 4.1 GB
-./scripts/download.sh --scan border-foods   # 12 GB
+./scripts/download.sh --scan shingle-roof     # start here, 4.1 GB
+./scripts/download.sh --scan flat-roof   # 12 GB
 ./scripts/download.sh --all                 # both
 ./scripts/download.sh --models              # just the reference models, ~500 MB
 ```
