@@ -27,17 +27,17 @@ Command-line options are further down under [Download](#download).*
 
 ## Building one — single storey commercial
 
-![Flat roof reconstruction](preview/flat-roof.jpg)
+![Building one reconstruction](preview/flat-roof.jpg)
 
-Single storey. Brick and painted panel walls, glazed frontage, parapet edge, ballasted flat
-roof with rooftop HVAC, sidewalk, landscaping and striped parking. 951 images, all 951 align.
+Single storey. Brick and painted panel walls, glazed frontage, sidewalk, landscaping and
+striped parking. 951 images, all 951 align.
 
 ## Building two — two storey commercial
 
-![Shingle roof reconstruction](preview/shingle-roof.jpg)
+![Building two reconstruction](preview/shingle-roof.jpg)
 
-Two storeys. Lap siding, hipped asphalt shingle roof, exterior walkway with railings, external
-stairs, satellite dish. 395 images, 384 align.
+Two storeys. Lap siding, exterior walkway with railings, external stairs, satellite dish.
+395 images, 384 align.
 
 ## What's in it
 
@@ -54,9 +54,9 @@ stairs, satellite dish. 395 images, 384 align.
 ## Capture
 
 Both flown low and slow, under 16 m, gimbal sweeping from straight down to slightly upward.
-Nadir frames cover the roof, oblique catch the roof edge and parapet, low and level frames get
-the walls. That is why the walls resolve — most aerial capture is nadir-only and building sides
-come out as smeared vertical texture.
+Nadir frames cover the top, oblique catch the edges, low and level frames get the walls. That
+is why the walls resolve — most aerial capture is nadir-only and building sides come out as
+smeared vertical texture.
 
 | | |
 |---|---|

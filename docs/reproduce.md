@@ -24,7 +24,7 @@ and go straight to meshing or splatting. Reproduce it only if you want to compar
 that never aligned.
 
 If your solve splits the same way, that is the dataset behaving normally, not your settings
-failing. Adding control points across the roof planes is the usual fix.
+failing. Adding control points across the structure is the usual fix.
 
 **flat-roof solves cleanly at 951/951** in one component. It is the easier of the two.
 
@@ -39,7 +39,7 @@ Suggested starting settings. These are recommendations, not a record of the orig
 | Image overlap | `High` | dense low-altitude orbits |
 | Detector sensitivity | `Medium` | buildings have plenty of texture |
 | Max features per image | `40000` | default is fine at this image count |
-| Image downscale factor | `1` | do not downscale; roof detail is the point |
+| Image downscale factor | `1` | do not downscale; fine detail is the point |
 
 Reconstruction in `Normal` detail is enough for a building. Set a reconstruction region first —
 the unclipped extent pulls in a lot of thinly-observed parking lot and neighbouring lawn.

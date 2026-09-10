@@ -1,15 +1,15 @@
 cff-version: 1.2.0
 message: "If you use this dataset, please cite it as below."
 type: dataset
-title: "Drone Building Scans — Two Roof Types"
+title: "Drone Building Scans — Two Commercial Buildings"
 abstract: >-
   Two complete drone photogrammetry image sets of commercial buildings in the Minneapolis
-  suburbs, captured August 2026 with a DJI FC9313 at native 4096x3072 resolution. A flat
-  membrane roof with rooftop HVAC (951 images, 951 aligned) and a pitched asphalt shingle roof
-  (395 images, 384 aligned). Both flown below 16 m with gimbal angles spanning nadir to level,
-  covering roof, roof edge and walls. GPS intact on every frame, original aircraft filenames
-  preserved. Solved camera poses in COLMAP format, sparse tie point clouds, and textured
-  reference models are included. The flat-roof scan is metrically scaled from a 1.997 m
+  suburbs, captured August 2026 with a DJI FC9313 at native 4096x3072 resolution. A single
+  storey building (951 images, 951 aligned) and a two storey building (395 images, 384
+  aligned). Both flown below 16 m with gimbal angles spanning nadir to level, covering the
+  structures from above and from the side. GPS intact on every frame, original aircraft
+  filenames preserved. Solved camera poses in COLMAP format, sparse tie point clouds, and
+  textured reference models are included. One scan is metrically scaled from a 1.997 m
   AprilTag calibration bar used as control points.
 authors:
   - family-names: Guertin
