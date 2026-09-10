@@ -56,6 +56,14 @@ without needing my camera poses.
 GLB opens in a browser, Blender, or any glTF viewer. OBJ is there for the bigger one if you
 want the untextured geometry at full density.
 
+## Gaussian splatting
+
+No camera poses here — run COLMAP or GLOMAP first. Both scans are small enough that ordinary
+3DGS handles them without the large-scale variants, unlike a city block. Downsample to
+~1600 px before training.
+
+The reference `.glb` gives you something to compare a splat or a mesh against.
+
 ## Download
 
 Images are hosted off GitHub. See [docs/download.md](docs/download.md).
