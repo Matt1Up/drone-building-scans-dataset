@@ -27,10 +27,10 @@ stairs, satellite dish.
 | | `flat-roof` | `shingle-roof` |
 |---|---|---|
 | images | 951 | 395 |
-| size | 12 GB | 4.5 GB |
+| size | 10.61 GiB | 4.08 GiB |
 | aligned | **951 / 951** | 384 / 395 |
 | camera poses | included | included |
-| tie points | 146 MB | 68 MB |
+| tie points | 2,230,994 | 1,025,000 |
 | reference model | `.glb` + `.obj` | `.glb` |
 | scale | **metric — AprilTag control points** | unscaled |
 
@@ -55,16 +55,27 @@ as real observations. Everything here is the native readout.
 
 ## Scale
 
-**The flat-roof scan is metrically scaled.** A calibrated bar carrying two AprilTag 36h11
-markers (IDs 001 and 002) was placed in the scene and used as control points — see
-`flat-roof/controlpoints.txt`. The tags are visible in the imagery, so the scale is verifiable
-from the data rather than something you have to take on trust.
+**The flat-roof scan is metrically scaled from a physical reference.** A calibrated bar
+carrying two AprilTag 36h11 markers was laid in the grass and used as control points.
 
-**The shingle-roof scan is not scaled.** No control points, no physical reference. Geometry is
-correct, absolute size is not established.
+| | |
+|---|---|
+| bar length | **1.997 m**, centre of tag to centre of tag |
+| tag family | AprilTag 36h11 |
+| control points | `poses/flat-roof/controlpoints.txt` |
 
-Scale from a measured physical reference is the difference between a measurement and a guess
-about a roof somebody buys shingles against.
+The tags are visible in the imagery, so the scale is checkable from the data rather than
+something you take on trust — detect both tags, measure centre to centre, and it should come
+out at 1.997 m.
+
+**Watch the tag IDs.** RealityScan labels 36h11 tags on its own scheme, not the official one.
+`controlpoints.txt` records them as `36h11:001` and `36h11:002` — those are RealityScan's
+labels. Under the official 36h11 numbering that most detectors (OpenCV, the apriltag library)
+report, the same two tags come back as **476** and **283**. If you detect the tags yourself and
+get numbers that look nothing like the control point file, this is why.
+
+**The shingle-roof scan is not scaled.** No control points, no physical reference in frame.
+Geometry is correct; absolute size is not established.
 
 ## Camera poses
 
@@ -87,8 +98,8 @@ The reference `.glb` gives you something to compare a splat or a mesh against.
 ## Download
 
 ```bash
-./scripts/download.sh --scan shingle-roof   # 4.5 GB, start here
-./scripts/download.sh --scan flat-roof      # 12 GB
+./scripts/download.sh --scan shingle-roof   # 4.08 GiB, start here
+./scripts/download.sh --scan flat-roof      # 10.61 GiB
 ./scripts/download.sh --all
 ./scripts/download.sh --models              # reference models only
 ./scripts/verify.sh

@@ -1,11 +1,12 @@
 # Downloading
 
-Images are hosted on Hugging Face, not GitHub — this repo holds documentation, manifests and
-checksums.
+Images, models and tie points are hosted on Hugging Face, not GitHub — this repo holds
+documentation, manifests, checksums and the small pose files.
 
 ```
-shingle-roof/     393 images    4.1 GB
-flat-roof/   951 images     12 GB
+flat-roof/       951 images   10.61 GiB
+shingle-roof/    395 images    4.08 GiB
+                              15.51 GiB total
 ```
 
 ## Hugging Face
@@ -13,24 +14,37 @@ flat-roof/   951 images     12 GB
 ```bash
 pip install -U 'huggingface_hub[cli]'
 
-./scripts/download.sh --scan shingle-roof     # start here, 4.1 GB
-./scripts/download.sh --scan flat-roof   # 12 GB
+./scripts/download.sh --scan shingle-roof   # 4.08 GiB, start here
+./scripts/download.sh --scan flat-roof      # 10.61 GiB
 ./scripts/download.sh --all                 # both
-./scripts/download.sh --models              # just the reference models, ~500 MB
+./scripts/download.sh --models              # reference models only, ~475 MB
 ```
 
-Or browse: **https://huggingface.co/datasets/Matt1up/drone-building-scans**
+Browse: **https://huggingface.co/datasets/Matt1up/drone-building-scans**
+
+## What's in each scan
+
+```
+<scan>/images/               source JPEGs, original aircraft filenames, EXIF intact
+<scan>/poses/xmp/            RealityScan XMP sidecars, one per aligned image
+<scan>/poses/colmap/         cameras.txt, images.txt, points3D.txt
+<scan>/model/                textured .glb (and .obj + .mtl for flat-roof)
+<scan>/sfm/tiepoints.ply     sparse point cloud
+flat-roof/controlpoints.txt  AprilTag control points — the scale reference
+```
+
+`cameras.txt` and `images.txt` are also committed to this repo under `poses/`, so you can read
+the camera parameters without downloading anything. `points3D.txt` is on Hugging Face because
+of its size.
 
 ## Why individual files, not archives
-
-The images are published as individual files rather than one archive:
 
 - download one scan without taking both
 - downloads resume — a dropped connection doesn't restart from zero
 - each file is checksummed on its own
-- no scratch space needed to unpack
+- no scratch space needed to unpack an archive
 
-Nothing is gzipped. JPEG is already compressed; measured on these sets it reclaims well under
+Nothing is gzipped. JPEG is already compressed; measured on this content it reclaims well under
 1% while destroying random access.
 
 ## Verifying
@@ -39,5 +53,8 @@ Nothing is gzipped. JPEG is already compressed; measured on these sets it reclai
 ./scripts/verify.sh
 ```
 
-Checks SHA-256 for every file present and ignores the rest, so partial downloads verify fine.
-`manifest/images.csv` also carries dimensions, capture time, GPS and gimbal angle per image.
+Checks SHA-256 for every file you actually have and ignores the rest, so partial downloads
+verify cleanly.
+
+Per-scan manifests live at `manifest/<scan>/images.csv` and carry filename, size, SHA-256,
+dimensions, capture time and GPS for every image.

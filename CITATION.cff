@@ -1,13 +1,16 @@
 cff-version: 1.2.0
 message: "If you use this dataset, please cite it as below."
 type: dataset
-title: "Drone Building Scans — Commercial Building Photogrammetry Datasets"
+title: "Drone Building Scans — Two Roof Types"
 abstract: >-
   Two complete drone photogrammetry image sets of commercial buildings in the Minneapolis
-  suburbs, captured August 2026 with a DJI FC9313 at native 4096x3072 resolution. 393 images
-  of a recreation center and 951 of a commercial building at 5425 Boone Ave N. Both flown below 16 m
-  with gimbal angles spanning nadir to level, covering roof, roof edge and walls. GPS intact
-  on every frame. Finished 3D models included as reference.
+  suburbs, captured August 2026 with a DJI FC9313 at native 4096x3072 resolution. A flat
+  membrane roof with rooftop HVAC (951 images, 951 aligned) and a pitched asphalt shingle roof
+  (395 images, 384 aligned). Both flown below 16 m with gimbal angles spanning nadir to level,
+  covering roof, roof edge and walls. GPS intact on every frame, original aircraft filenames
+  preserved. Solved camera poses in COLMAP format, sparse tie point clouds, and textured
+  reference models are included. The flat-roof scan is metrically scaled from a 1.997 m
+  AprilTag calibration bar used as control points.
 authors:
   - family-names: Guertin
     given-names: Matthew
@@ -26,4 +29,8 @@ keywords:
   - building inspection
   - roof inspection
   - dataset
+  - camera poses
+  - colmap
+  - roof
+  - commercial building
 repository-code: "https://github.com/Matt1Up/drone-building-scans-dataset"
