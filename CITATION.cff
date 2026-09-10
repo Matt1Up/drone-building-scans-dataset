@@ -26,11 +26,8 @@ keywords:
   - 3D reconstruction
   - structure from motion
   - gaussian splatting
-  - building inspection
-  - roof inspection
   - dataset
   - camera poses
   - colmap
-  - roof
   - commercial building
 repository-code: "https://github.com/Matt1Up/drone-building-scans-dataset"

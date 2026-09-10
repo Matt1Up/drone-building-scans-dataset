@@ -1,10 +1,10 @@
-# Drone Building Scans — Two Roof Types
+# Drone Building Scans
 
 Two commercial buildings in the Minneapolis suburbs, flown August 2026. Full image sets with
 GPS intact, solved camera poses, and the finished 3D models.
 
-Free drone photogrammetry test data for buildings barely exists. If you are working on roof
-inspection, insurance, or solar tooling, this is meant for you.
+Free drone photogrammetry test data for buildings barely exists — published datasets are
+either a whole city block or a turntable object, with nothing in between.
 
 CC BY 4.0.
 
@@ -25,19 +25,19 @@ Command-line options are further down under [Download](#download).*
 ---
 
 
-## Flat roof — membrane with rooftop units
+## Building one — single storey commercial
 
 ![Flat roof reconstruction](preview/flat-roof.jpg)
 
-Single-storey commercial building. Ballasted membrane roof carrying a full spread of rooftop
-HVAC units, parapet edge, brick and panel walls, striped parking.
+Single storey. Brick and painted panel walls, glazed frontage, parapet edge, ballasted flat
+roof with rooftop HVAC, sidewalk, landscaping and striped parking. 951 images, all 951 align.
 
-## Shingle roof — pitched asphalt
+## Building two — two storey commercial
 
 ![Shingle roof reconstruction](preview/shingle-roof.jpg)
 
-Two-storey building with a hipped asphalt shingle roof, lap siding, exterior walkway and
-stairs, satellite dish.
+Two storeys. Lap siding, hipped asphalt shingle roof, exterior walkway with railings, external
+stairs, satellite dish. 395 images, 384 align.
 
 ## What's in it
 
