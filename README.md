@@ -8,6 +8,23 @@ inspection, insurance, or solar tooling, this is meant for you.
 
 CC BY 4.0.
 
+## ⬇ Download the images
+
+### **[→ huggingface.co/datasets/Matt1up/drone-building-scans](https://huggingface.co/datasets/Matt1up/drone-building-scans)**
+
+**Click that, open the "Files and versions" tab, and download whatever you want.** No account,
+no signup, no tools, no command line. Just click files and they download.
+
+The images are 15 GB so they live there rather than on GitHub, which cannot host files that
+size. This page has the documentation, checksums and camera poses.
+
+*Want the finished 3D model to spin around? [Here it is](https://huggingface.co/datasets/Matt1up/drone-building-scans/resolve/main/flat-roof/model/flat-roof.glb) —
+21 MB, opens in any glTF viewer or just drag it onto [gltf-viewer.donmccurdy.com](https://gltf-viewer.donmccurdy.com).
+Command-line options are further down under [Download](#download).*
+
+---
+
+
 ## Flat roof — membrane with rooftop units
 
 ![Flat roof reconstruction](preview/flat-roof.jpg)
