@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Download building scan image sets.
-#   ./scripts/download.sh --scan shingle-roof      4.1 GB, 393 images
+#   ./scripts/download.sh --scan shingle-roof      4.1 GB, 395 images
 #   ./scripts/download.sh --scan flat-roof    12 GB, 951 images
 #   ./scripts/download.sh --all
 #   ./scripts/download.sh --models               reference .glb/.obj only (~500 MB)
@@ -22,8 +22,8 @@ done
 [[ -z "$mode" ]] && { sed -n '2,6p' "$0"; exit 2; }
 
 if ! command -v hf >/dev/null 2>&1 && ! command -v huggingface-cli >/dev/null 2>&1; then
-  echo "Needs the Hugging Face CLI:  pip install -U 'huggingface_hub[cli]'"
-  echo "Other mirrors are listed in docs/download.md"
+  echo "Needs the Hugging Face CLI:  pip install -U huggingface_hub"
+  echo "Or download files in a browser: https://huggingface.co/datasets/$HF_REPO/tree/main"
   exit 1
 fi
 HF=$(command -v hf || command -v huggingface-cli)
@@ -37,6 +37,11 @@ case "$mode" in
 esac
 
 echo "→ $HF_REPO ($mode) → $DEST"
-"$HF" "${args[@]}"
+"$HF" "${args[@]}" || {
+  echo
+  echo "Stopped early. Run the same command again — finished files are skipped."
+  echo "HTTP 429 is Hugging Face's rate limit: wait five minutes, or log in first with  hf auth login"
+  exit 1
+}
 echo
 echo "Done. Verify with:  ./scripts/verify.sh"

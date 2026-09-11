@@ -112,7 +112,7 @@ The reference `.glb` gives you something to compare a splat or a mesh against.
 ## Reproducing
 
 Both scans ship solved poses, so you only need to re-align if you want to compare. See
-[docs/reproduce.md](docs/reproduce.md) for settings and what to expect — notably that the
+[docs/reproduce.md](https://github.com/Matt1Up/drone-building-scans-dataset/blob/main/docs/reproduce.md) for settings and what to expect — notably that the
 shingle-roof alignment splits into three components and only the largest is published.
 
 ## Download
@@ -120,14 +120,24 @@ shingle-roof alignment splits into three components and only the largest is publ
 **→ [huggingface.co/datasets/Matt1up/drone-building-scans](https://huggingface.co/datasets/Matt1up/drone-building-scans)**
 
 Click the **Files** tab and download whatever you want in a browser — no tooling, no account.
-This GitHub repo holds the documentation, manifests, checksums and camera poses; the images and
-models live there.
+The images and models live there; the
+[GitHub repo](https://github.com/Matt1Up/drone-building-scans-dataset) holds the documentation,
+manifests, checksums and camera poses.
 
 **One file, straight from a browser or the shell:**
 
 ```bash
-curl -O https://huggingface.co/datasets/Matt1up/drone-building-scans/resolve/main/flat-roof/model/flat-roof.glb
+curl -LO https://huggingface.co/datasets/Matt1up/drone-building-scans/resolve/main/flat-roof/model/flat-roof.glb
 ```
+
+**Everything, one command.** Run it again if it stops — finished files are skipped.
+
+```bash
+pip install -U huggingface_hub
+hf download Matt1up/drone-building-scans --repo-type dataset --local-dir ./drone-building-scans
+```
+
+Add `--include 'shingle-roof/*'` or `--include 'flat-roof/*'` to take one building.
 
 **Everything, as a git repo** (needs git-lfs):
 
@@ -135,11 +145,12 @@ curl -O https://huggingface.co/datasets/Matt1up/drone-building-scans/resolve/mai
 git clone https://huggingface.co/datasets/Matt1up/drone-building-scans
 ```
 
-**Or use the helper script**, a wrapper around the Hugging Face CLI that adds resume, parallel
-transfers and hash checking:
+**Or the helper scripts** from the [GitHub repo](https://github.com/Matt1Up/drone-building-scans-dataset),
+which wrap the same command and add `verify.sh` to check every image against the published
+SHA-256 lists:
 
 ```bash
-pip install -U 'huggingface_hub[cli]'
+git clone https://github.com/Matt1Up/drone-building-scans-dataset && cd drone-building-scans-dataset
 
 ./scripts/download.sh --scan shingle-roof   # 4.08 GiB, start here
 ./scripts/download.sh --scan flat-roof      # 10.61 GiB
@@ -147,7 +158,7 @@ pip install -U 'huggingface_hub[cli]'
 ./scripts/verify.sh
 ```
 
-More detail in **[docs/download.md](docs/download.md)**.
+More detail in **[docs/download.md](https://github.com/Matt1Up/drone-building-scans-dataset/blob/main/docs/download.md)**.
 
 ## Notes
 

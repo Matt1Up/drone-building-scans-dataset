@@ -12,7 +12,7 @@ shingle-roof/    395 images    4.08 GiB
 ## Hugging Face
 
 ```bash
-pip install -U 'huggingface_hub[cli]'
+pip install -U huggingface_hub
 
 ./scripts/download.sh --scan shingle-roof   # 4.08 GiB, start here
 ./scripts/download.sh --scan flat-roof      # 10.61 GiB
@@ -21,6 +21,12 @@ pip install -U 'huggingface_hub[cli]'
 ```
 
 Browse: **https://huggingface.co/datasets/Matt1up/drone-building-scans**
+
+Raw CLI, without the wrapper. Run it again if it stops — finished files are skipped.
+
+```bash
+hf download Matt1up/drone-building-scans --repo-type dataset --local-dir ./data
+```
 
 ## What's in each scan
 
@@ -53,8 +59,8 @@ Nothing is gzipped. JPEG is already compressed; measured on this content it recl
 ./scripts/verify.sh
 ```
 
-Checks SHA-256 for every file you actually have and ignores the rest, so partial downloads
-verify cleanly.
+Checks SHA-256 for every image you actually have and ignores the rest, so partial downloads
+verify cleanly. The lists are `manifest/<scan>/checksums.sha256`.
 
 Per-scan manifests live at `manifest/<scan>/images.csv` and carry filename, size, SHA-256,
 dimensions, capture time and GPS for every image.
