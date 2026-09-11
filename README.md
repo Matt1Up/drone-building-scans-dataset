@@ -12,10 +12,10 @@ CC BY 4.0.
 
 ### **[→ huggingface.co/datasets/Matt1up/drone-building-scans](https://huggingface.co/datasets/Matt1up/drone-building-scans)**
 
-Browse the **Files** tab and take what you want — no account needed. The 15 GB of imagery lives
+Browse the **Files** tab and take what you want — no account needed. The 16 GB of imagery lives
 there because GitHub won't host files that size; this repo holds docs, checksums and poses.
 
-[Textured model, 21 MB](https://huggingface.co/datasets/Matt1up/drone-building-scans/resolve/main/flat-roof/model/flat-roof.glb)
+[Textured model, 22 MB](https://huggingface.co/datasets/Matt1up/drone-building-scans/resolve/main/flat-roof/model/flat-roof.glb)
  · [sample image](https://huggingface.co/datasets/Matt1up/drone-building-scans/resolve/main/flat-roof/images/DJI_20260822183442_0005_D.JPG)
  · [command-line options](#download)
 
@@ -41,7 +41,7 @@ Two storeys. Lap siding, exterior walkway with railings, external stairs, satell
 | | `flat-roof` | `shingle-roof` |
 |---|---|---|
 | images | 951 | 395 |
-| size | 10.61 GiB | 4.08 GiB |
+| size | 12.13 GB | 4.52 GB |
 | aligned | **951 / 951** | 384 / 395 |
 | camera poses | included | included |
 | tie points | 2,230,994 | 1,025,000 |
@@ -152,9 +152,9 @@ SHA-256 lists:
 ```bash
 git clone https://github.com/Matt1Up/drone-building-scans-dataset && cd drone-building-scans-dataset
 
-./scripts/download.sh --scan shingle-roof   # 4.08 GiB, start here
-./scripts/download.sh --scan flat-roof      # 10.61 GiB
-./scripts/download.sh --models              # just the reference models, ~475 MB
+./scripts/download.sh --scan shingle-roof   # 4.52 GB, start here
+./scripts/download.sh --scan flat-roof      # 12.13 GB
+./scripts/download.sh --models              # just the reference models, ~500 MB
 ./scripts/verify.sh
 ```
 

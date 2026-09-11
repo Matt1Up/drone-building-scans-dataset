@@ -4,9 +4,9 @@ Images, models and tie points are hosted on Hugging Face, not GitHub — this re
 documentation, manifests, checksums and the small pose files.
 
 ```
-flat-roof/       951 images   10.61 GiB
-shingle-roof/    395 images    4.08 GiB
-                              15.51 GiB total
+flat-roof/       951 images   11.39 GB
+shingle-roof/    395 images    4.39 GB
+                              15.78 GB total
 ```
 
 ## Hugging Face
@@ -14,10 +14,10 @@ shingle-roof/    395 images    4.08 GiB
 ```bash
 pip install -U huggingface_hub
 
-./scripts/download.sh --scan shingle-roof   # 4.08 GiB, start here
-./scripts/download.sh --scan flat-roof      # 10.61 GiB
+./scripts/download.sh --scan shingle-roof   # 4.52 GB, start here
+./scripts/download.sh --scan flat-roof      # 12.13 GB
 ./scripts/download.sh --all                 # both
-./scripts/download.sh --models              # reference models only, ~475 MB
+./scripts/download.sh --models              # reference models only, ~500 MB
 ```
 
 Browse: **https://huggingface.co/datasets/Matt1up/drone-building-scans**

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Download building scan image sets.
-#   ./scripts/download.sh --scan shingle-roof      4.1 GB, 395 images
+#   ./scripts/download.sh --scan shingle-roof      4.5 GB, 395 images
 #   ./scripts/download.sh --scan flat-roof    12 GB, 951 images
 #   ./scripts/download.sh --all
 #   ./scripts/download.sh --models               reference .glb/.obj only (~500 MB)
